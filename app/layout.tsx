@@ -1,10 +1,8 @@
 import '@mantine/core/styles.css';
-import "@mantine/notifications/styles.css";
+import '@mantine/notifications/styles.css';
 
-import { ColorSchemeScript, mantineHtmlProps, MantineProvider } from '@mantine/core';
-import { Notifications } from '@mantine/notifications';
-import ClientAppWrapper from '../components/ClientAppWrapper';
-import { theme } from '../theme';
+import { ColorSchemeScript, mantineHtmlProps } from '@mantine/core';
+import DefaultPageWrapper from '../components/DefaultPageWrapper';
 
 export const metadata = {
   title: 'Mantine Next.js template',
@@ -23,13 +21,7 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body>
-        <MantineProvider theme={theme}>
-          <ClientAppWrapper>
-            {children}
-
-            <Notifications />
-          </ClientAppWrapper>
-        </MantineProvider>
+        <DefaultPageWrapper>{children}</DefaultPageWrapper>
       </body>
     </html>
   );
