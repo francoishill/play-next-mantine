@@ -1,7 +1,9 @@
 import '@mantine/core/styles.css';
+import "@mantine/notifications/styles.css";
 
-import React from 'react';
 import { ColorSchemeScript, mantineHtmlProps, MantineProvider } from '@mantine/core';
+import { Notifications } from '@mantine/notifications';
+import ClientAppWrapper from '../components/ClientAppWrapper';
 import { theme } from '../theme';
 
 export const metadata = {
@@ -21,7 +23,13 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <MantineProvider theme={theme}>
+          <ClientAppWrapper>
+            {children}
+
+            <Notifications />
+          </ClientAppWrapper>
+        </MantineProvider>
       </body>
     </html>
   );
